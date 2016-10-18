@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "jsx": "react",
+    "outDir": "./build/",
+    "experimentalDecorators": true,
+    "allowJs": false,
+    "pretty": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "typeRoots": ["./typings/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "react": ["./typings/globals/react"],
+      "react-dom": ["./typings/globals/react-dom"]
+    }
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "emitRequireType": false,
+    "useBabel": false
+  },
+  "compiler": "typescript",
+  "exclude": [
+    "node_modules"
+  ]
+}
