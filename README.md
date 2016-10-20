@@ -15,6 +15,8 @@ Now that you have all the dependencies, run the dev server:
 npm run dev
 ```
 
+Your application is now running in development environment: http://localhost:3000/
+
 ## Built with
 * [ReactJS](https://facebook.github.io/react/) - The JavaScript framework
 * [TypeScript](https://www.typescriptlang.org/) - The JavaScript superset
