@@ -5,7 +5,9 @@
     "dev": "node server.js"
   },
   "devDependencies": {
+    "css-loader": "^0.25.0",
     "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.13.1",
     "ts-loader": "^0.9.3",
     "typescript": "^2.0.3",
     "typings": "^1.4.0",

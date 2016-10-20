@@ -4,7 +4,7 @@
     "jsx": "react",
     "outDir": "./build/",
     "experimentalDecorators": true,
-    "allowJs": false,
+    "allowJs": true,
     "pretty": true,
     "sourceMap": true,
     "noImplicitAny": true,

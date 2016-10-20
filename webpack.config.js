@@ -13,13 +13,13 @@ module.exports = {
     ],
 
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "build"),
         filename: "bundle.js",
         publicPath: '/static/'
     },
 
     resolve: {
-        extensions: ["", ".ts", ".tsx", ".js"]
+        extensions: ["", ".ts", ".tsx", ".js", ".css"]
     },
 
     plugins: [
@@ -28,6 +28,10 @@ module.exports = {
 
     module: {
         loaders: [
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            },
             {
                 test: /\.tsx?$/,
                 loaders: [
