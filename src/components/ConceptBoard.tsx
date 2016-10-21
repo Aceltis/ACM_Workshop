@@ -1,34 +1,39 @@
 import * as React from "react";
-														//inout would be list of selected input
+
 export default class ConceptBoard extends React.Component<any, any> {
     render () {
-    	var details = {index: 15, main: true};
-
+        var selectedConcept = [15, 16, 17];
+    	var details = [{index: 15}, {index: 16}, {index: 17}];
+        var conceptBoxNodes:any = [];
+        
+        //create a row of boxes
+        for(var i=0; i < details.length; i++) {
+            conceptBoxNodes.push (
+                    <ConceptBox index={selectedConcept[i]} eye={i}/>         
+                );
+        }       
+ 
         return (
-
-            // use state to show if selected
-            // create a concept image and concept image details together
-            //TODO loop over array to make multiple boxes
-            <div>
-				<ConceptBox index={details.index} main={details.main}/>         
+            //return the row of boxes
+            <div className="row">
+            {conceptBoxNodes}
             </div>
         );
     }
 }
-
 class ConceptBox extends React.Component<any, any> {
-
     render () {
-    	//TODO: STATUS WILL BE HERE
     	var index = this.props.index;
-    	var main = this.props.main;
-        return (
-        	 // use state to show if selected
-            // create a concept image and concept image details together
-            <div>           			
-				<img src={'src/images/image' + index + ".png" } />
-				<ConceptBoxDeatils category={main}/>          
-            </div>
+        //build a thumbnail object     
+        return (       
+              <div className="col-md-2">
+                <div className="thumbnail">
+                  <img src={'src/images/image' + index + ".png" } alt={index}/>
+                  <div className="caption">
+                    <ConceptBoxDeatils eye={this.props.eye}/>
+                  </div>
+                </div>  
+              </div>       		
         );
     }
 }
@@ -37,33 +42,41 @@ class ConceptBoxDeatils extends React.Component<any, any> {
     
 	constructor(props:any) {
 		super(props);
-
 		this.state = {numberOfTokens:1};
 	}
 
 	increment() {
-		//TODO not bigger than 5
-		this.setState({numberOfTokens: this.state.numberOfTokens + 1});
+        if(this.state.numberOfTokens < 5) {
+		  this.setState({numberOfTokens: this.state.numberOfTokens + 1});
+        }
 	}
 	decrement() {
-		// no less then 1
-		this.setState({numberOfTokens: this.state.numberOfTokens - 1});
+		if(this.state.numberOfTokens > 0 ) {
+		  this.setState({numberOfTokens: this.state.numberOfTokens - 1});
+        }
 	}
-
-    //this needs a color, a button, a number to display, and a button
-    //state: color, and the number
-    //TODO: make onClick methods for buttons
-    render () {
-    	//TODO: there will be a state here
+    render () {   
+        //first thing in the list is primary 
+        if(this.props.eye == 0){
+            var color = "bg-primary";
+        } else {
+            var color = "bg-info";
+        }
+        
         return (
-            <div>
-	         <div color={this.props.color}> </div>
-	         <button type="button" className="btn btn-default" onClick={() => this.decrement()}> Minus</button> 
-	         <div>{this.state.numberOfTokens}</div>
-	         <button type="button" className="btn btn-default" onClick={() => this.increment()}> Plus</button> 
-
-            </div>
+            //build the row of controls
+            <p>
+             <div className={color}> This is the color </div>
+             <a type="button" className="btn btn-default" onClick={() => this.decrement()}> 
+                <span className="glyphicon glyphicon-minus" aria-hidden="true"></span>
+             </a> 
+             <span>   {this.state.numberOfTokens}   </span>
+             <a type="button" className="btn btn-default" onClick={() => this.increment()}>
+                <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+             </a> 
+            </p>
         );
     }
+    
 }
 
