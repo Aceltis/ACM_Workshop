@@ -1,39 +1,36 @@
 import * as React from "react";
-														//inout would be list of selected input
+
 export default class ConceptBoard extends React.Component<any, any> {
     render () {
-    	var details = [{index: 15, main: true}, {index: 16, main: false}, {index: 17, main: false}];
-        //var conceptBoxNodes = this.props.data.map(function(*list?*) { });
+        var selectedConcept = [15, 16, 17];
+    	var details = [{index: 15}, {index: 16}, {index: 17}];
         var conceptBoxNodes:any = [];
+        
+        //create a row of boxes
         for(var i=0; i < details.length; i++) {
             conceptBoxNodes.push (
-                    <ConceptBox index={details[i].index} main={details[i].main}/>         
+                    <ConceptBox index={selectedConcept[i]} eye={i}/>         
                 );
         }       
  
         return (
+            //return the row of boxes
             <div className="row">
             {conceptBoxNodes}
             </div>
         );
     }
 }
-
 class ConceptBox extends React.Component<any, any> {
-
     render () {
-    	//TODO: STATUS WILL BE HERE
     	var index = this.props.index;
-    	var main = this.props.main;
-        return (
-        	 // use state to show if selected
-            // create a concept image and concept image details together
-            
+        //build a thumbnail object     
+        return (       
               <div className="col-md-2">
                 <div className="thumbnail">
                   <img src={'src/images/image' + index + ".png" } alt={index}/>
                   <div className="caption">
-                    <ConceptBoxDeatils category={main}/>
+                    <ConceptBoxDeatils eye={this.props.eye}/>
                   </div>
                 </div>  
               </div>       		
@@ -49,22 +46,27 @@ class ConceptBoxDeatils extends React.Component<any, any> {
 	}
 
 	increment() {
-		//TODO not bigger than 5
-		this.setState({numberOfTokens: this.state.numberOfTokens + 1});
+        if(this.state.numberOfTokens < 5) {
+		  this.setState({numberOfTokens: this.state.numberOfTokens + 1});
+        }
 	}
 	decrement() {
-		// no less then 1
-		this.setState({numberOfTokens: this.state.numberOfTokens - 1});
+		if(this.state.numberOfTokens > 0 ) {
+		  this.setState({numberOfTokens: this.state.numberOfTokens - 1});
+        }
 	}
-
-    //this needs a color, a button, a number to display, and a button
-    //state: color, and the number
-    //TODO: make onClick methods for buttons
-    render () {
-    	//TODO: there will be a state here
+    render () {   
+        //first thing in the list is primary 
+        if(this.props.eye == 0){
+            var color = "bg-primary";
+        } else {
+            var color = "bg-info";
+        }
+        
         return (
+            //build the row of controls
             <p>
-             <div color={this.props.color}> This is the color </div>
+             <div className={color}> This is the color </div>
              <a type="button" className="btn btn-default" onClick={() => this.decrement()}> 
                 <span className="glyphicon glyphicon-minus" aria-hidden="true"></span>
              </a> 
@@ -74,6 +76,7 @@ class ConceptBoxDeatils extends React.Component<any, any> {
              </a> 
             </p>
         );
+    }
     
 }
 
