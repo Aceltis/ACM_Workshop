@@ -15,6 +15,5 @@ export var constants = {
     "Friday the 13th",
     "MP3 player"
   ],
-  images: 106,
-  colors: 12
+  images: 118
 };

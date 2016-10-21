@@ -34,3 +34,7 @@ html, body, .fullSize {
     width: 100%;
     height: 10%;
 }
+
+.disableImage {
+    opacity: 0.5;	
+}
