@@ -1,6 +1,6 @@
 import * as React from "react";
 import Word from "./Word";
-import ConceptImages from "./ConceptImages";
+import ConceptLibrary from "./ConceptLibrary";
 import Board from "./Board";
 import GuessArea from "./GuessArea";
 
@@ -9,7 +9,7 @@ export default class Game extends React.Component<any, any> {
         return (
             <div className="fullSize">
                 <Word />
-                <ConceptImages />
+                <ConceptLibrary />
                 <Board />
                 <GuessArea />
             </div>

@@ -1,15 +1,15 @@
 import * as React from "react";
-import { constants } from "../data/contants";
+import { constants } from "../data/constants";
 
 class ConceptImage extends React.Component<any, any> {
     render() {
         return (
-                <div className="col-xs-6 col-md-3">
-                    <a href="#" className="thumbnail">
-                        <img src="../images/image0.png" alt="Image not found">
-                     </a>
-                </div>
-            );
+            <div className="col-xs-6 col-md-3">
+                <a href="#" className="thumbnail">
+                    <img src="../images/image0.png" alt="Image not found" />
+                 </a>
+            </div>
+        );
     }
 }
 
