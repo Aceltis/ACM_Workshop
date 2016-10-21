@@ -4,3 +4,4 @@ build/
 typings/
 typings.json
 src/images
+.DS_Store
