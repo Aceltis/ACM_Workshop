@@ -18,11 +18,10 @@ class ConceptImage extends React.Component<any, any> {
 
     // () => Anonyous function
     render() {
-        var disableClass = this.state.selected ? "disableImage" : ""
-        
+        var disableClass = this.state.selected ? "disableImage" : "";
 
         return (
-            <div className={disableClass}>
+            <div className={disableClass + " col-md-1 conceptImage"}>
                 <a href="#" className="thumbnail" onClick={() => this.clickHandler()}> 
                     <img src={"src/images/image"+ this.props.index +".png"} alt="Image not found" />
                 </a>
@@ -64,7 +63,9 @@ export default class ConceptLibrary extends React.Component<any, any> {
 
         return (
             <div className="container-fluid conceptImages">
-                {imageNodes}
+                <div className="row">
+                    {imageNodes}
+                </div>
             </div>
         );
     }   

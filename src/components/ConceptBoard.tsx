@@ -2,20 +2,19 @@ import * as React from "react";
 
 export default class ConceptBoard extends React.Component<any, any> {
     render () {
-        var selectedConcept = [15, 16, 17];
-    	var details = [{index: 15}, {index: 16}, {index: 17}];
+        var selectedConcepts = this.props.selectedConcepts;
         var conceptBoxNodes:any = [];
         
         //create a row of boxes
-        for(var i=0; i < details.length; i++) {
+        for(var i=0; i < selectedConcepts.length; i++) {
             conceptBoxNodes.push (
-                    <ConceptBox index={selectedConcept[i]} eye={i}/>         
+                    <ConceptBox index={selectedConcepts[i]} eye={i}/>
                 );
         }       
  
         return (
             //return the row of boxes
-            <div className="row">
+            <div className="row board">
             {conceptBoxNodes}
             </div>
         );
