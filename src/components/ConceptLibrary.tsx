@@ -21,7 +21,7 @@ class ConceptImage extends React.Component<any, any> {
         var disableClass = this.state.selected ? "disableImage" : "";
 
         return (
-            <div className={disableClass + " col-md-1 conceptImage"}>
+            <div className={disableClass + " conceptImage"}>
                 <a href="#" className="thumbnail" onClick={() => this.clickHandler()}> 
                     <img src={"src/images/image"+ this.props.index +".png"} alt="Image not found" />
                 </a>

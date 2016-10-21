@@ -25,6 +25,10 @@ html, body, .fullSize {
 }
 
 .conceptImage {
+    width: 100px;
+    height: 100px;
+    margin: 12px;
+    float: left;
 }
 
 .board {
