@@ -2,15 +2,18 @@ import * as React from "react";
 														//inout would be list of selected input
 export default class ConceptBoard extends React.Component<any, any> {
     render () {
-    	var details = {index: 15, main: true};
-
+    	var details = [{index: 15, main: true}, {index: 16, main: false}, {index: 17, main: false}];
+        //var conceptBoxNodes = this.props.data.map(function(*list?*) { });
+        var conceptBoxNodes:any = [];
+        for(var i=0; i < details.length; i++) {
+            conceptBoxNodes.push (
+                    <ConceptBox index={details[i].index} main={details[i].main}/>         
+                );
+        }       
+ 
         return (
-
-            // use state to show if selected
-            // create a concept image and concept image details together
-            //TODO loop over array to make multiple boxes
-            <div>
-				<ConceptBox index={details.index} main={details.main}/>         
+            <div className="row">
+            {conceptBoxNodes}
             </div>
         );
     }
@@ -25,10 +28,15 @@ class ConceptBox extends React.Component<any, any> {
         return (
         	 // use state to show if selected
             // create a concept image and concept image details together
-            <div>           			
-				<img src={'src/images/image' + index + ".png" } />
-				<ConceptBoxDeatils category={main}/>          
-            </div>
+            
+              <div className="col-md-2">
+                <div className="thumbnail">
+                  <img src={'src/images/image' + index + ".png" } alt={index}/>
+                  <div className="caption">
+                    <ConceptBoxDeatils category={main}/>
+                  </div>
+                </div>  
+              </div>       		
         );
     }
 }
@@ -37,7 +45,6 @@ class ConceptBoxDeatils extends React.Component<any, any> {
     
 	constructor(props:any) {
 		super(props);
-
 		this.state = {numberOfTokens:1};
 	}
 
@@ -56,14 +63,17 @@ class ConceptBoxDeatils extends React.Component<any, any> {
     render () {
     	//TODO: there will be a state here
         return (
-            <div>
-	         <div color={this.props.color}> </div>
-	         <button type="button" className="btn btn-default" onClick={() => this.decrement()}> Minus</button> 
-	         <div>{this.state.numberOfTokens}</div>
-	         <button type="button" className="btn btn-default" onClick={() => this.increment()}> Plus</button> 
-
-            </div>
+            <p>
+             <div color={this.props.color}> This is the color </div>
+             <a type="button" className="btn btn-default" onClick={() => this.decrement()}> 
+                <span className="glyphicon glyphicon-minus" aria-hidden="true"></span>
+             </a> 
+             <span>   {this.state.numberOfTokens}   </span>
+             <a type="button" className="btn btn-default" onClick={() => this.increment()}>
+                <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+             </a> 
+            </p>
         );
-    }
+    
 }
 
