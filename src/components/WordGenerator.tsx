@@ -7,7 +7,7 @@ export default class WordGenerator extends React.Component<any, any> {
 
 		this.state={concepts:constants.words, currentConcept: null, show: true};
 	}
-    reseting(){
+    resetting(){
     }
 	getConcept(){
     	// get the first word from this.state.concepts
