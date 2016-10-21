@@ -15,12 +15,12 @@ html, body, .fullSize {
 
 .word {
     width: 100%;
-    height: 10%;
+    height: 6%;
 }
 
 .conceptImages {
     width: 100%;
-    height: 50%;
+    height: 59%;
     overflow: scroll;
 }
 
@@ -39,9 +39,14 @@ html, body, .fullSize {
 
 .guessArea {
     width: 100%;
-    height: 10%;
+    height: 5%;
 }
 
 .disableImage {
     opacity: 0.5;	
+}
+
+.text {
+    margin-left: 50px;
+    font-size: 18px;
 }

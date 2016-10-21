@@ -7,8 +7,11 @@ export default class WordGenerator extends React.Component<any, any> {
 
 		this.state={concepts:constants.words, currentConcept: null, show: true};
 	}
-    resetting(){
+
+    reset(){
+        location.reload();
     }
+
 	getConcept(){
     	// get the first word from this.state.concepts
     	// save it in currentConcept
@@ -33,13 +36,13 @@ export default class WordGenerator extends React.Component<any, any> {
             }
             
         return (
-            <div className= "row">
-                <button type="button" className="btn btn-warning col-md-1" onClick={() => this.resetting()}>MasterReset</button>
-                <button type="button" className="btn btn-success col-md-3" onClick={() => this.getConcept()}>Get Concept</button>
-                <div type="text" className="form-control">
-                    {text}
+            <div className= "container-fluid word">
+                <div className="btn-group" role="group">
+                    <button type="button" className="btn btn-warning" onClick={() => this.reset()}>MasterReset</button>
+                    <button type="button" className="btn btn-success" onClick={() => this.getConcept()}>Get Concept</button>
+                    <button type="button" className="btn btn-primary" onClick={() => this.hide()}>Hide</button>
                 </div>
-                <button  type="button" className="btn btn-primary col-md-1" onClick={() => this.hide()}>Hide</button>
+                <span className="text">{text}</span>
             </div>
         );
     }
