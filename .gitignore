@@ -2,8 +2,4 @@ node_modules/
 build/
 .idea/
 typings/
-<<<<<<< HEAD
-typings.json
-src/images
-.DS_Store
-typings.json
+npm-debug.log
